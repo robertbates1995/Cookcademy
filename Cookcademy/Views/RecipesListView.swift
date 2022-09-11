@@ -16,8 +16,18 @@ struct RecipesListView: View {
         Text(recipe.mainInformation.name)
       }
     }
-    .navigationTitle("All Recipes")
+    .navigationTitle(navigationTitle)
   }
+}
+
+extension RecipesListView {
+    var recipes: [Recipe] {
+        recipeData.recipes
+    }
+    
+    var navigationTitle: String {
+        "All Recipes"
+    }
 }
  
 struct RecipesListView_Previews: PreviewProvider {
