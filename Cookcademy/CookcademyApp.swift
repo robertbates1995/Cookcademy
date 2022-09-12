@@ -12,8 +12,8 @@ import SwiftUI
 struct CookcademyApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeDetailView(recipe: Recipe.testRecipes[0])
-            //RecipesListView()
+            //RecipeDetailView(recipe: Recipe.testRecipes[0])
+            RecipesListView()
         }
     }
 }
