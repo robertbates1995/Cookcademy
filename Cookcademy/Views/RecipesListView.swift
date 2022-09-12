@@ -10,20 +10,18 @@ import SwiftUI
 struct RecipesListView: View {
     @StateObject var recipeData = RecipeData()
     
-    private let listBackgroundColor = AppColor.background
-    private let listForegroundColor = AppColor.foreground
+    let listBackgroundColor = AppColor.background
+    let listTextColor = AppColor.foreground
     
     var body: some View {
-        List{
-            ForEach(recipes) { recipe in
-                NavigationLink( recipe.mainInformation.name,
-                                destination:
-                                    RecipeDetailView(recipe:recipe))
+            List {
+                ForEach(recipes) { recipe in
+                    NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: recipe))
+                }
+                .listRowBackground(listBackgroundColor)
+                .foregroundColor(listTextColor)
             }
-            .listRowBackground(listBackgroundColor)
-            .foregroundColor(listForegroundColor)
-        }
-        .navigationTitle(navigationTitle)
+            .navigationTitle(navigationTitle)
     }
 }
 
