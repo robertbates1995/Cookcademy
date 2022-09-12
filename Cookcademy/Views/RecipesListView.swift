@@ -14,15 +14,15 @@ struct RecipesListView: View {
     private let listForegroundColor = AppColor.foreground
     
     var body: some View {
-        List {
+        List{
             ForEach(recipes) { recipe in
                 NavigationLink( recipe.mainInformation.name,
                                 destination:
                                     RecipeDetailView(recipe:recipe))
             }
+            .listRowBackground(listBackgroundColor)
+            .foregroundColor(listForegroundColor)
         }
-        .listRowBackground(listBackgroundColor)
-        .foregroundColor(listForegroundColor)
         .navigationTitle(navigationTitle)
     }
 }
