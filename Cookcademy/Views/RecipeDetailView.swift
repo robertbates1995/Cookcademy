@@ -47,12 +47,13 @@ struct RecipeDetailView: View {
             .navigationTitle(recipe.mainInformation.name)
         }
     }
-    struct RecipeDetailView_Previews: PreviewProvider {
-        @State static var recipe = Recipe.testRecipes[1]
-        static var previews: some View {
-            NavigationView{
-                RecipeDetailView(recipe: recipe)
-            }
+}
+
+struct RecipeDetailView_Previews: PreviewProvider {
+    @State static var recipe = Recipe.testRecipes[0]
+    static var previews: some View {
+        NavigationView{
+            RecipeDetailView(recipe: recipe)
         }
     }
 }

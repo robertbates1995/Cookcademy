@@ -15,6 +15,7 @@
 		7AE2226E28CD40A0000E80E4 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2226D28CD40A0000E80E4 /* RecipeData.swift */; };
 		7AE2227028CD562C000E80E4 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2226F28CD562C000E80E4 /* RecipeDetailView.swift */; };
 		7AE2227228CEC5BC000E80E4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2227128CEC5BC000E80E4 /* AppColor.swift */; };
+		7AE2227428CFAECC000E80E4 /* RecipeCategoryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2227328CFAECC000E80E4 /* RecipeCategoryGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7AE2226D28CD40A0000E80E4 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		7AE2226F28CD562C000E80E4 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		7AE2227128CEC5BC000E80E4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		7AE2227328CFAECC000E80E4 /* RecipeCategoryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				7AE2224228CA5A44000E80E4 /* RecipesListView.swift */,
 				7AE2226F28CD562C000E80E4 /* RecipeDetailView.swift */,
+				7AE2227328CFAECC000E80E4 /* RecipeCategoryGridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				7AE2224F28CA60B0000E80E4 /* Recipe.swift in Sources */,
 				7AE2227028CD562C000E80E4 /* RecipeDetailView.swift in Sources */,
+				7AE2227428CFAECC000E80E4 /* RecipeCategoryGridView.swift in Sources */,
 				7AE2226E28CD40A0000E80E4 /* RecipeData.swift in Sources */,
 				7AE2224328CA5A44000E80E4 /* RecipesListView.swift in Sources */,
 				7AE2224128CA5A44000E80E4 /* CookcademyApp.swift in Sources */,
