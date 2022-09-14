@@ -16,7 +16,7 @@ struct RecipesListView: View {
     
     var body: some View {
         List {
-            ForEach(recipes(for: category)) { recipe in
+            ForEach(recipes) { recipe in
                 NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: recipe))
             }
             .listRowBackground(listBackgroundColor)
@@ -27,16 +27,6 @@ struct RecipesListView: View {
 }
 
 extension RecipesListView {
-    func recipes(for category: MainInformation.Category) -> [Recipe] {
-        var filteredRecipes = [Recipe]()
-        for recipe in recipeData.recipes {
-            if recipe.mainInformation.category == category {
-                filteredRecipes.append(recipe)
-            }
-        }
-        return filteredRecipes
-    }
-    
     private var recipes: [Recipe] {
         recipeData.recipes(for: category)
     }

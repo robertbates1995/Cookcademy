@@ -11,11 +11,17 @@ struct RecipeCategoryGridView: View {
     private var recipeData = RecipeData()
     
     var body: some View {
+        let columns = [GridItem(), GridItem()]
         ScrollView{
-            let columns = [GridItem(), GridItem()]
             LazyVGrid(columns: columns, content: {
                 ForEach(MainInformation.Category.allCases, id: \.self) { category in
-                    CategoryView(category: category)
+                    NavigationLink(
+                        destination: RecipesListView(category: category)
+                            .environmentObject(recipeData),
+                        label: {
+                            CategoryView(category: category)
+                        }
+                    )
                 }
             })
             .navigationTitle("Categories")
@@ -34,6 +40,8 @@ struct CategoryView: View {
                 .opacity(0.35)
             Text(category.rawValue)
                 .font(.title)
+                .foregroundColor(Color.black)
+                .opacity(0.75)
         }
     }
 }

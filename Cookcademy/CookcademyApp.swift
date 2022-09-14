@@ -12,9 +12,7 @@ struct CookcademyApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                //RecipeCategoryGridView()
-                RecipesListView(category: .breakfast)
-                    .environmentObject(RecipeData())
+                RecipeCategoryGridView()
             }
         }
     }
