@@ -11,6 +11,8 @@ struct RecipesListView: View {
     @EnvironmentObject private var recipeData: RecipeData
     let category: MainInformation.Category
     
+    @State private var isPresenting = false
+    
     let listBackgroundColor = AppColor.background
     let listTextColor = AppColor.foreground
     
@@ -23,6 +25,15 @@ struct RecipesListView: View {
             .foregroundColor(listTextColor)
         }
         .navigationTitle(navigationTitle)
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isPresenting = true
+                }, label: {
+                    Image(systemName: "plus")
+                })
+            }
+        })
     }
 }
 
