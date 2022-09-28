@@ -21,7 +21,7 @@ struct Recipe: Identifiable {
     }
     
     init() {
-        self.init(mainInformation: MainInformation(name: "", description: "", author: "", category: .breakfast), ingredients: [], directions: [])
+        self.init(mainInformation: MainInformation(name: "test", description: "test", author: "test", category: .breakfast), ingredients: [], directions: [])
     }
 }
 
