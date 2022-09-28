@@ -12,6 +12,7 @@ struct RecipesListView: View {
     let category: MainInformation.Category
     
     @State private var isPresenting = false
+    @State private var newRecipe = Recipe()
     
     let listBackgroundColor = AppColor.background
     let listTextColor = AppColor.foreground
@@ -32,6 +33,12 @@ struct RecipesListView: View {
                 }, label: {
                     Image(systemName: "plus")
                 })
+            }
+        })
+        .sheet(isPresented: $isPresenting, content: {
+            NavigationView{
+                ModifyRecipeView(recipe: $newRecipe)
+                    .navigationTitle("Add a New Recipe")
             }
         })
     }
