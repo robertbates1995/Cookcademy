@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ModifyMainInformationView: View {
+    private let listBackgroundColor = AppColor.background
+    private let listTextColor = AppColor.foreground
+    
     @Binding var mainInformation: MainInformation
     
     var body: some View {
@@ -28,7 +31,10 @@ struct ModifyMainInformationView: View {
                         Text(category.rawValue)
                     }
                 }
+                .listRowBackground(listBackgroundColor)
+                .pickerStyle(MenuPickerStyle())
         }
+        .foregroundColor(listTextColor)
     }
 }
 
