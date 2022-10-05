@@ -21,7 +21,7 @@ struct Recipe: Identifiable {
     }
     
     init() {
-        self.init(mainInformation: MainInformation(name: "test", description: "test", author: "test", category: .breakfast), ingredients: [], directions: [])
+        self.init(mainInformation: MainInformation(),  ingredients: [], directions: [])
     }
     
     var isValid: Bool {
@@ -45,6 +45,15 @@ struct MainInformation {
     
     var isValid: Bool {
         !name.isEmpty && !description.isEmpty && !author.isEmpty
+    }
+}
+
+extension MainInformation{
+    init() {
+        self.name = "test"
+        self.description = "test"
+        self.author = "test"
+        self.category = .breakfast
     }
 }
 

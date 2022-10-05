@@ -17,4 +17,3 @@ struct CookcademyApp: App {
         }
     }
 }
-
