@@ -14,6 +14,13 @@ struct ModifyIngredientView: View {
         VStack{
             Form{
                 TextField("Ingredient Name", text: $ingredient.name)
+                Stepper(value: $ingredient.quantity, in: 0...1000, step: 1.0) {
+                    HStack{
+                        Text("Quantity:")
+                        TextField("test", value: $ingredient.quantity, formatter: NumberFormatter())
+                            .keyboardType(.numbersAndPunctuation)
+                    }
+                }
             }
         }
     }
