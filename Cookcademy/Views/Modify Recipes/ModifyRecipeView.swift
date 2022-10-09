@@ -13,7 +13,7 @@ struct ModifyRecipeView: View {
     
     var body: some View {
         VStack{
-            Picker("Select recipe component", selection: $selection){
+            Picker("Select recipe component", selection: $selection) {
                 Text("Main Info").tag(Selection.main)
                 Text("Ingredients").tag(Selection.ingredients)
                 Text("Directions").tag(Selection.directions)
