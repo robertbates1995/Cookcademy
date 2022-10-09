@@ -21,6 +21,15 @@ struct ModifyIngredientView: View {
                             .keyboardType(.numbersAndPunctuation)
                     }
                 }
+                Picker(selection: $ingredient.unit, label: HStack{
+                    Text("Unit")
+                    Spacer()
+                    Text(ingredient.unit.rawValue)
+                }) {
+                    ForEach(Ingredient.Unit.allCases, id: \.self) { unit in
+                        Text(unit.rawValue)
+                    }
+                }
             }
         }
     }
