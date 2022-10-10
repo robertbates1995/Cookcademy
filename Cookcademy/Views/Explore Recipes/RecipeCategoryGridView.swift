@@ -11,21 +11,18 @@ struct RecipeCategoryGridView: View {
     private var recipeData = RecipeData()
     
     var body: some View {
-        let columns = [GridItem(), GridItem()]
-        ScrollView{
-            LazyVGrid(columns: columns, content: {
-                ForEach(MainInformation.Category.allCases, id: \.self) { category in
-                    NavigationLink(
-                        destination: RecipesListView(category: category)
-                            .environmentObject(recipeData),
-                        label: {
-                            CategoryView(category: category)
-                        }
-                    )
-                }
-            })
-            .navigationTitle("Categories")
+        VStack{
+            ForEach(MainInformation.Category.allCases, id: \.self) { category in
+                NavigationLink(
+                    destination: RecipesListView(category: category)
+                        .environmentObject(recipeData),
+                    label: {
+                        CategoryView(category: category).frame(maxWidth: .infinity, minHeight: 0.0).clipped()
+                    }
+                )
+            }
         }
+        .navigationTitle("Categories")
     }
 }
 
@@ -36,7 +33,7 @@ struct CategoryView: View {
         ZStack {
             Image(category.rawValue)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .opacity(0.35)
             Text(category.rawValue)
                 .font(.title)
