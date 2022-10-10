@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ModifyIngredientView: View {
-    @State var ingredient: Ingredient
+    @Binding var ingredient: Ingredient
     
     var body: some View {
         VStack{
@@ -48,6 +48,6 @@ struct ModifyIngredientView_Previews: PreviewProvider {
     @State static var emptyIngredient = Ingredient(name: "", quantity: 1.0, unit: .none)
     
     static var previews: some View {
-        ModifyIngredientView(ingredient: emptyIngredient)
+        ModifyIngredientView(ingredient: $emptyIngredient)
     }
 }

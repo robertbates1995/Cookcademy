@@ -15,7 +15,7 @@ struct ModifyIngredientsView: View {
         VStack {
             if ingredients.isEmpty {
                 Spacer()
-                NavigationLink("Add the first ingredient", destination: ModifyIngredientView(ingredient: newIngredient))
+                NavigationLink("Add the first ingredient", destination: ModifyIngredientView(ingredient: $newIngredient))
                 Spacer()
             } else {
                 List{
@@ -23,6 +23,8 @@ struct ModifyIngredientsView: View {
                         let ingredient = ingredients[index]
                         Text(ingredient.description)
                     }
+                    NavigationLink("Add another ingredient", destination: ModifyIngredientView(ingredient: $newIngredient))
+                        .buttonStyle(PlainButtonStyle())
                 }
             }
         }
