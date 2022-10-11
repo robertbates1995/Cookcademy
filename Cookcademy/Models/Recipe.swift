@@ -89,6 +89,14 @@ struct Ingredient {
     }
 }
 
+extension Ingredient {
+    init() {
+        self.name = ""
+        self.quantity = 1.0
+        self.unit = .none
+    }
+}
+
 struct Direction {
     var description: String
     var isOptional: Bool

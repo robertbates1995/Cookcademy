@@ -13,13 +13,13 @@ struct ModifyIngredientsView: View {
     private let listBackgroundColor = AppColor.background
     private let listTextColor = AppColor.foreground
     
-    @State private var newIngredient = Ingredient(name: "", quantity: 0.0, unit: .none)
+    @State private var newIngredient = Ingredient()
     
     var body: some View {
         VStack {
             let addIngredientView = ModifyIngredientView(ingredient: $newIngredient) { ingredient in
                 ingredients.append(ingredient)
-                newIngredient = Ingredient(name: "", quantity: 0.0, unit: .none)
+                newIngredient = Ingredient()
             }.navigationTitle("Add Ingredient")
             if ingredients.isEmpty {
                 Spacer()
@@ -49,7 +49,7 @@ struct ModifyIngredientsView: View {
 }
 
 struct ModifyIngredientsView_Previews: PreviewProvider {
-    @State static var recipe = Recipe.testRecipes[1]
+    @State static var recipe = Recipe.testRecipes[0]
     @State static var emptyIngredients = [Ingredient]()
     static var previews: some View {
         NavigationView {
