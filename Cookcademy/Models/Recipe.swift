@@ -50,9 +50,9 @@ struct MainInformation {
 
 extension MainInformation{
     init() {
-        self.name = "test"
-        self.description = "test"
-        self.author = "test"
+        self.name = ""
+        self.description = ""
+        self.author = ""
         self.category = .breakfast
     }
 }
