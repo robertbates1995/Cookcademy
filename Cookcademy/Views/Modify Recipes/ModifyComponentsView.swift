@@ -48,7 +48,7 @@ struct ModifyComponentsView: View {
     }
 }
 
-struct ModifyIngredientsView_Previews: PreviewProvider {
+struct ModifyComponentsView_Previews: PreviewProvider {
     @State static var recipe = Recipe.testRecipes[0]
     @State static var emptyIngredients = [Ingredient]()
     static var previews: some View {
