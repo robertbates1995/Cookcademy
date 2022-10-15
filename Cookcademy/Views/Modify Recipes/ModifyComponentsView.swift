@@ -16,7 +16,7 @@ protocol ModifyComponentView: View {
     init(component: Binding<Component>, createAction: @escaping (Component) -> Void)
 }
 
-struct ModifyComponentsView: View {
+struct ModifyComponentsView<Component: RecipeComponent, DestinationView: ModifyComponentView>: View {
     @Binding var ingredients: [Ingredient]
     
     private let listBackgroundColor = AppColor.background
@@ -59,13 +59,13 @@ struct ModifyComponentsView: View {
 
 struct ModifyComponentsView_Previews: PreviewProvider {
     @State static var recipe = Recipe.testRecipes[0]
-    @State static var emptyIngredients = [Ingredient]()
+    @State static var emptyIngredients = Recipe.testRecipes[0].ingredients
     static var previews: some View {
         NavigationView {
-            ModifyComponentsView(ingredients: $recipe.ingredients)
+            ModifyComponentsView<Ingredient, ModifyIngredientView>(ingredients: $emptyIngredients)
         }
         NavigationView {
-            ModifyComponentsView(ingredients: $emptyIngredients)
+            ModifyComponentsView<Ingredient, ModifyIngredientView>(ingredients: $recipe.ingredients)
         }
     }
 }

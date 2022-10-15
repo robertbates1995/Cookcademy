@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ModifyIngredientView: View {
+struct ModifyIngredientView: ModifyComponentView {
     @Binding var ingredient: Ingredient
     let createAction: ((Ingredient) -> Void)
     
@@ -72,6 +72,6 @@ struct ModifyIngredientView_Previews: PreviewProvider {
             ModifyIngredientView(component: $emptyIngredient) { ingredient in
                 print(ingredient)
             }
-        }.navigationTitle("Add Ingredient") //this might be the wrong line
+        }.navigationTitle("Add Ingredient")
     }
 }
