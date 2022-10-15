@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+protocol RecipeComponent {
+    init()
+}
+
+protocol ModifyComponentView: View {
+    associatedtype Component
+    init(component: Binding<Component>, createAction: @escaping (Component) -> Void)
+}
+
 struct ModifyComponentsView: View {
     @Binding var ingredients: [Ingredient]
     
@@ -17,7 +26,7 @@ struct ModifyComponentsView: View {
     
     var body: some View {
         VStack {
-            let addIngredientView = ModifyIngredientView(ingredient: $newIngredient) { ingredient in
+            let addIngredientView = ModifyIngredientView(component: $newIngredient) { ingredient in
                 ingredients.append(ingredient)
                 newIngredient = Ingredient()
             }.navigationTitle("Add Ingredient")

@@ -57,7 +57,7 @@ extension MainInformation{
     }
 }
 
-struct Ingredient {
+struct Ingredient: RecipeComponent {
     var name: String
     var quantity: Double
     var unit: Unit
@@ -97,9 +97,18 @@ extension Ingredient {
     }
 }
 
-struct Direction {
+struct Direction: RecipeComponent {
     var description: String
     var isOptional: Bool
+    
+    init(description: String, isOptional: Bool) {
+        self.description = description
+        self.isOptional = isOptional
+    }
+    
+    init() {
+        self.init(description: "", isOptional: false)
+    }
 }
 
 extension Recipe {
