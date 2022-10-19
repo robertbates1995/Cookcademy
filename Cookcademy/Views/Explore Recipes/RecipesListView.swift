@@ -29,6 +29,7 @@ struct RecipesListView: View {
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
+                    newRecipe.mainInformation.category = category
                     isPresenting = true
                 }, label: {
                     Image(systemName: "plus")
@@ -47,7 +48,6 @@ struct RecipesListView: View {
                         ToolbarItem(placement: .confirmationAction) {
                             if newRecipe.isValid {
                                 Button("Add") {
-                                    newRecipe.mainInformation.category = category
                                     recipeData.recipes.append(newRecipe)
                                     isPresenting = false
                                 }
@@ -67,6 +67,13 @@ extension RecipesListView {
     
     private var navigationTitle: String {
         "\(category.rawValue) Recipes"
+    }
+    
+    func binding(for recipe: Recipe) -> Binding<Recipe> {
+        guard let index = recipeData.index(of: recipe) else {
+            fatalError("Recipe not found")
+        }
+        return $recipeData.recipes[index]
     }
 }
 
