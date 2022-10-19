@@ -20,7 +20,7 @@ struct RecipesListView: View {
     var body: some View {
         List {
             ForEach(recipes) { recipe in
-                NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: recipe))
+                NavigationLink(recipe.mainInformation.name, destination: RecipeDetailView(recipe: binding(for: recipe)))
             }
             .listRowBackground(listBackgroundColor)
             .foregroundColor(listTextColor)
