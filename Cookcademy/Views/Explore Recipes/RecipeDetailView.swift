@@ -9,25 +9,26 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     @Binding var recipe: Recipe
+    @State private var isPresenting = false
     
     private let listBackgroundColor = AppColor.background
     private let listTextColor = AppColor.foreground
     
     var body: some View {
-        VStack{
+        VStack {
             HStack{
                 Text("Author: \(recipe.mainInformation.author)")
                     .font(.subheadline)
                     .padding()
                 Spacer()
             }
-            HStack{
+            HStack {
                 Text(recipe.mainInformation.description)
                     .font(.body)
                     .padding()
                 Spacer()
             }
-            List{
+            List {
                 Section(header: Text("Ingredients")) {
                     ForEach(recipe.ingredients.indices, id: \.self){ index in
                         let ingredient = recipe.ingredients[index]
@@ -44,7 +45,28 @@ struct RecipeDetailView: View {
                     }
                 }.listRowBackground(listBackgroundColor)
             }
-            .navigationTitle(recipe.mainInformation.name)
+        }
+        .navigationTitle(recipe.mainInformation.name)
+        .toolbar {
+            ToolbarItem {
+                HStack {
+                    Button("Edit") {
+                        isPresenting = true
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $isPresenting) {
+            NavigationView {
+                ModifyRecipeView(recipe: $recipe)
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Save") {
+                            isPresenting = false
+                        }
+                    }
+                }
+            }
         }
     }
 }
