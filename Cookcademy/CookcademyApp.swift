@@ -12,7 +12,7 @@ struct CookcademyApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                RecipeCategoryGridView()
+                MainTabView()
             }
         }
     }
