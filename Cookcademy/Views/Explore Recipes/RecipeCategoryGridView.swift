@@ -13,11 +13,8 @@ struct RecipeCategoryGridView: View {
     var body: some View {
         VStack{
             ForEach(MainInformation.Category.allCases, id: \.self) { category in
-                NavigationLink(
-                    destination: RecipesListView(category: category)
-                        .environmentObject(recipeData),
-                    label: {
-                        CategoryView(category: category).frame(maxWidth: .infinity, minHeight: 0.0).clipped()
+                NavigationLink(destination: RecipesListView(viewStyle: .singleCategory(category)), label: {
+                        CategoryView(category: category)
                     }
                 )
             }
