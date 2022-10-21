@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecipeCategoryGridView: View {
+    
     private var recipeData = RecipeData()
     
     var body: some View {
