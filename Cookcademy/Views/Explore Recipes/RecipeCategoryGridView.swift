@@ -14,8 +14,10 @@ struct RecipeCategoryGridView: View {
         VStack{
             ForEach(MainInformation.Category.allCases, id: \.self) { category in
                 NavigationLink(destination: RecipesListView(viewStyle: .singleCategory(category)), label: {
-                        CategoryView(category: category)
-                    }
+                    CategoryView(category: category)
+                        .frame(maxWidth: .infinity, minHeight: 0.0)
+                        .clipped()
+                }
                 )
             }
         }
