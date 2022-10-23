@@ -14,8 +14,8 @@ struct RecipesListView: View {
     @State private var isPresenting = false
     @State private var newRecipe = Recipe()
     
-    let listBackgroundColor = AppColor.background
-    let listTextColor = AppColor.foreground
+    @AppStorage("listBackgroundColor") private var listBackgroundColor = AppColor.background
+    @AppStorage("listTextColor") private var listTextColor = AppColor.foreground
     
     var body: some View {
         List {
