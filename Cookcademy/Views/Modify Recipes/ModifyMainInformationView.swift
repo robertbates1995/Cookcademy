@@ -35,6 +35,7 @@ struct ModifyMainInformationView: View {
                 .pickerStyle(MenuPickerStyle())
         }
         .foregroundColor(listTextColor)
+        .scrollContentBackground(.hidden)
     }
 }
 

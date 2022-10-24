@@ -35,10 +35,11 @@ struct CategoryView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .opacity(0.35)
+                .background(.white)
             Text(category.rawValue)
                 .font(.title)
                 .foregroundColor(Color.black)
-                .opacity(0.75)
+                .opacity(0.9)
         }
     }
 }

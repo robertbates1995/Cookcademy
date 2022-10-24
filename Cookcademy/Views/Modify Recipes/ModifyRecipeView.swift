@@ -11,6 +11,9 @@ struct ModifyRecipeView: View {
     @Binding var recipe: Recipe
     @State private var selection = Selection.main
     
+    @AppStorage("listBackgroundColor") private var listBackgroundColor = AppColor.background
+    @AppStorage("listTextColor") private var listTextColor = AppColor.foreground
+    
     var body: some View {
         VStack{
             Picker("Select recipe component", selection: $selection) {
@@ -29,7 +32,7 @@ struct ModifyRecipeView: View {
                 ModifyComponentsView<Direction, ModifyDirectionView>(components: $recipe.directions)
             }
             Spacer()
-        }
+        } .background(listBackgroundColor)
     }
     
     enum Selection {
