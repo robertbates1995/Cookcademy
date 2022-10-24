@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var hideOptionalSteps: Bool = false
+    @AppStorage("hideOptionalSteps") private var hideOptionalSteps: Bool = false
     @AppStorage("listBackgroundColor") private var listBackgroundColor = AppColor.background
     @AppStorage("listTextColor") private var listTextColor = AppColor.foreground
     
@@ -27,6 +27,15 @@ struct SettingsView: View {
             }
             .foregroundColor(listTextColor)
             .navigationTitle("Settings")
+        }
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    @State static var recipe = Recipe.testRecipes[0]
+    static var previews: some View {
+        NavigationView{
+            SettingsView()
         }
     }
 }

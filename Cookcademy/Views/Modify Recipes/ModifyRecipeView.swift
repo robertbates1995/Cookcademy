@@ -22,6 +22,7 @@ struct ModifyRecipeView: View {
                 Text("Directions").tag(Selection.directions)
             }
             .pickerStyle(SegmentedPickerStyle())
+            .background(.white)
             .padding()
             switch selection{
             case .main:
