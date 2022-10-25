@@ -48,6 +48,7 @@ struct RecipesListView: View {
                             if newRecipe.isValid {
                                 Button("Add") {
                                     recipeData.recipes.append(newRecipe)
+                                    recipeData.saveRecipes()
                                     isPresenting = false
                                 }
                             }

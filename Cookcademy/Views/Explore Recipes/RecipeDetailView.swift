@@ -73,14 +73,14 @@ struct RecipeDetailView: View {
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Save") {
+                                recipeData.saveRecipes()
                                 isPresenting = false
                             }
                         }
                     }
+                
             }
-            .onDisappear {
-                recipeData.saveRecipes()
-            }
+            
         }
     }
 }
